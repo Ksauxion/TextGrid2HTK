@@ -27,7 +27,7 @@ labs=[]
 sils=['<ap>','ap','','sil','<pad>','spn','<spn>']
 brs=['<sp>','sp']
 if converter is not None and converter!='sil_and_br':
-    with open(converter) as f:
+    with open(converter,encoding='utf-8') as f:
         dd=f.readlines()
     repl={}
     for k in dd:
@@ -55,6 +55,6 @@ for i in a:
             l.append(f'{int(j.xmin*10000000)} {(int(j.xmax*10000000))} {j.text}'+'\n')
         elif frm=='txt':
             l.append(f'{j.xmin:.6f}	{j.xmax:.6f}	{j.text}'+'\n')
-    with open(i.split('.')[0]+f'.{frm}','w') as lab:
+    with open(i.split('.')[0]+f'.{frm}','w',encoding='utf-8') as lab:
         for j in l:
             lab.write(j)
